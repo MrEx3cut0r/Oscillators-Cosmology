@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oscillators-cosmology"
+version = "0.1.0"
+description = "Simulation of matter genesis in the early universe: parametric resonance, leptogenesis, and quantum particle creation"
+readme = "README.md"
+authors = [
+    {name = "Gumar Arutunyan", email = "legendary.killtell@gmail.com"},
+]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Astronomy",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+keywords = ["cosmology", "quantum-field-theory", "parametric-resonance", "leptogenesis", 
+           "bogoliubov", "early-universe", "particle-creation", "mathieu-equation"]
+dependencies = [
+    "numpy>=1.21.0",
+    "scipy>=1.7.0",
+    "matplotlib>=3.4.0",
+    "tqdm>=4.62.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/MrEx3cut0r/Oscillators-Cosmology"
+Repository = "https://github.com/MrEx3cut0r/Oscillators-Cosmology.git"
+"Bug Tracker" = "https://github.com/MrEx3cut0r/Oscillators-Cosmology/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+    "black>=22.0",
+    "isort>=5.0",
+    "flake8>=4.0",
+    "mypy>=0.900",
+]
+fast = [
+    "numba>=0.56",
+]
+
+[project.scripts]
+oscillators-sim = "oscillators.__main__:main"
+oscillators-calibrate = "oscillators.calibration:calibrate_planck"
+
+[tool.setuptools]
+packages = ["oscillators"]
+
+[tool.setuptools.package-data]
+oscillators = ["py.typed"]
